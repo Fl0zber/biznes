@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Фріланс — Свобода працювати на себе</title>
+  <style>
+    :root {
+      --primary-color: #4a6fa5;
+      --secondary-color: #ff7e5f;
+      --dark-color: #2c3e50;
+      --light-color: #f8f9fa;
+      --success-color: #28a745;
+    }
+    
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      background-color: #f6f9fc;
+      color: #333;
+      line-height: 1.6;
+    }
+    
+    header {
+      background: linear-gradient(135deg, var(--primary-color), var(--dark-color));
+      color: white;
+      padding: 1rem 2rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    
+    .header-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+    
+    header h1 {
+      margin: 0.5rem 0;
+      font-size: 2.2rem;
+      font-weight: 700;
+      background: linear-gradient(to right, #fff, #e0e0e0);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    
+    nav ul {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin: 1rem 0 0;
+    }
+    
+    nav a {
+      color: white;
+      text-decoration: none;
+      padding: 0.5rem 1.2rem;
+      border-radius: 2rem;
+      background-color: rgba(255,255,255,0.15);
+      transition: all 0.3s ease;
+      font-weight: 500;
+      display: inline-block;
+    }
+    
+    nav a:hover {
+      background-color: rgba(255,255,255,0.3);
+      transform: translateY(-2px);
+    }
+    
+    main {
+      max-width: 900px;
+      margin: 2.5rem auto;
+      padding: 0 1.5rem;
+    }
+    
+    .freelance-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+    
+    @media (max-width: 768px) {
+      .freelance-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    .card {
+      background-color: white;
+      border-radius: 12px;
+      padding: 1.8rem;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 24px rgba(0,0,0,0.12);
+    }
+    
+    .card h2 {
+      color: var(--primary-color);
+      margin-top: 0;
+      position: relative;
+      padding-bottom: 0.8rem;
+      font-size: 1.5rem;
+    }
+    
+    .card h2::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 50px;
+      height: 3px;
+      background-color: var(--secondary-color);
+      border-radius: 3px;
+    }
+    
+    .pros-cons {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+    
+    .pros {
+      border-left: 4px solid var(--success-color);
+      padding-left: 1rem;
+    }
+    
+    .cons {
+      border-left: 4px solid var(--secondary-color);
+      padding-left: 1rem;
+    }
+    
+    .platforms {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+    
+    .platform-card {
+      background: white;
+      border-radius: 8px;
+      padding: 1.2rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      transition: all 0.3s ease;
+    }
+    
+    .platform-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    }
+    
+    .platform-card a {
+      color: var(--primary-color);
+      text-decoration: none;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    
+    .platform-card a::after {
+      content: '→';
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    
+    .platform-card:hover a::after {
+      opacity: 1;
+    }
+    
+    footer {
+      text-align: center;
+      background-color: var(--dark-color);
+      color: white;
+      padding: 1.5rem;
+      margin-top: 3rem;
+    }
+    
+    .step-list {
+      counter-reset: step-counter;
+      padding-left: 0;
+    }
+    
+    .step-list li {
+      counter-increment: step-counter;
+      list-style: none;
+      position: relative;
+      padding-left: 3rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    .step-list li::before {
+      content: counter(step-counter);
+      position: absolute;
+      left: 0;
+      top: 0;
+      background-color: var(--primary-color);
+      color: white;
+      width: 2rem;
+      height: 2rem;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+    }
+    
+    .highlight {
+      background-color: rgba(74, 111, 165, 0.1);
+      padding: 0.2rem 0.4rem;
+      border-radius: 4px;
+      font-weight: 500;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-container">
+      <h1>Фріланс — свобода працювати на себе</h1>
+      <nav>
+        <ul>
+          <li><a href="index.html">Головна</a></li>
+          <li><a href="career.html">Кар'єра</a></li>
+          <li><a href="business.html">Бізнес</a></li>
+          <li><a href="crypto.html">Криптовалюта</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="freelance-grid">
+      <div class="card">
+        <h2>Що таке фріланс?</h2>
+        <p>
+          Фріланс — це сучасний формат роботи, де ви виконуєте проєкти для клієнтів без довготривалих зобов'язань. 
+          Ви самі обираєте коли, де та з ким працювати.
+        </p>
+        <p>
+          Найпопулярніші сфери: <span class="highlight">дизайн</span>, <span class="highlight">програмування</span>, 
+          <span class="highlight">копірайтинг</span>, <span class="highlight">маркетинг</span> та <span class="highlight">переклади</span>.
+        </p>
+      </div>
+      
+      <div class="card">
+        <h2>Як почати?</h2>
+        <ol class="step-list">
+          <li><strong>Визначте спеціалізацію</strong> — оберіть те, що вмієте найкраще</li>
+          <li><strong>Створіть портфоліо</strong> — покажіть свої роботи</li>
+          <li><strong>Зареєструйтесь на біржах</strong> — знайдіть перших клієнтів</li>
+        </ol>
+      </div>
+    </div>
+    
+    <div class="pros-cons">
+      <div class="card pros">
+        <h2>Переваги</h2>
+        <ul>
+          <li>Гнучкий графік і свобода вибору</li>
+          <li>Можливість працювати віддалено</li>
+          <li>Контроль над своїм заробітком</li>
+          <li>Безмежні можливості для росту</li>
+        </ul>
+      </div>
+      
+      <div class="card cons">
+        <h2>Недоліки</h2>
+        <ul>
+          <li>Нестабільний дохід на початку</li>
+          <li>Відсутність соціальних гарантій</li>
+          <li>Необхідність самоорганізації</li>
+          <li>Ризик вигорання</li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="card">
+      <h2>Популярні платформи</h2>
+      <p>Ось топ-5 майданчиків для початку кар'єри фрілансера:</p>
+      
+      <div class="platforms">
+        <div class="platform-card">
+          <a href="https://www.upwork.com/" target="_blank">Upwork</a>
+        </div>
+        <div class="platform-card">
+          <a href="https://www.freelancer.com/" target="_blank">Freelancer</a>
+        </div>
+        <div class="platform-card">
+          <a href="https://www.fiverr.com/" target="_blank">Fiverr</a>
+        </div>
+        <div class="platform-card">
+          <a href="https://www.toptal.com/" target="_blank">Toptal</a>
+        </div>
+        <div class="platform-card">
+          <a href="https://kabanchik.ua/" target="_blank">Kabanchik.ua</a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Сучасна Кар'єра та Бізнес. Всі права захищено.</p>
+  </footer>
+</body>
+</html>

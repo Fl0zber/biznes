@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Кар'єра, Бізнес і Фріланс</title>
+  <style>
+    /* Основні налаштування */
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f4f7fa;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    /* Шапка */
+    header {
+      background-color: #0b63ce;
+      color: white;
+      padding: 15px 30px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .logo {
+      height: 80px;
+      width: 80px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid white;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      transition: transform 0.3s ease;
+    }
+
+    .logo:hover {
+      transform: rotate(15deg) scale(1.05);
+    }
+
+    .site-title {
+      margin: 0;
+      font-size: 1.8em;
+      font-weight: 700;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+    }
+
+    nav ul {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      gap: 15px;
+      margin: 0;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      padding: 8px 16px;
+      background-color: rgba(255, 255, 255, 0.2);
+      border-radius: 30px;
+      transition: all 0.3s ease;
+      font-weight: 500;
+      display: inline-block;
+    }
+
+    nav a:hover {
+      background-color: rgba(255, 255, 255, 0.4);
+      transform: translateY(-2px);
+    }
+
+    /* Основний контент */
+    main {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    /* Стиль для секцій */
+    section {
+      background-color: #ffffff;
+      border-radius: 16px;
+      padding: 30px;
+      margin-bottom: 30px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    section:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 24px rgba(0,0,0,0.12);
+    }
+
+    section h2 {
+      color: #0b63ce;
+      margin-top: 0;
+      position: relative;
+      padding-bottom: 10px;
+    }
+
+    section h2::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 60px;
+      height: 3px;
+      background-color: #0b63ce;
+      border-radius: 3px;
+    }
+
+    /* Підвал */
+    footer {
+      text-align: center;
+      background-color: #0b63ce;
+      color: white;
+      padding: 25px;
+      font-size: 0.9em;
+      margin-top: 50px;
+    }
+
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        text-align: center;
+        padding: 20px 15px;
+      }
+      
+      .logo-container {
+        margin-bottom: 15px;
+        justify-content: center;
+      }
+      
+      nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo-container">
+      <img src="https://via.placeholder.com/300x200/8a2be2/ffffff?text=Freelance+Logo"alt="Логотип" class="logo">
+      <h1 class="site-title">Сучасна Кар'єра</h1>
+    </div>
+    
+    <nav>
+      <ul>
+        <li><a href="career.html">Кар'єра</a></li>
+        <li><a href="business.html">Бізнес</a></li>
+        <li><a href="freelance.html">Фріланс</a></li>
+        <li><a href="crypto.html">Криптовалюта</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section>
+      <h2>Про сайт</h2>
+      <p>
+        Цей сайт створено для тих, хто прагне розвиватися професійно, будувати успішний бізнес або освоїти фріланс.
+        Ми також охоплюємо сучасні фінансові інструменти, зокрема криптовалюти, які відіграють дедалі більшу роль у цифровій економіці.
+      </p>
+      <p>
+        Незалежно від того, чи ви лише починаєте свій шлях або вже маєте досвід — тут ви знайдете практичні поради, глибокі аналітичні статті
+        та корисні ресурси для щоденного використання.
+      </p>
+    </section>
+
+    <section>
+      <h2>Наш підхід</h2>
+      <p>
+        Ми прагнемо надати максимально корисний, сучасний та перевірений контент. Кожен розділ наповнений унікальним змістом, який відповідає
+        вимогам сьогодення.
+      </p>
+      <p>
+        Впевненість у завтрашньому дні починається з розуміння сьогоднішніх можливостей. Тож приєднуйтеся до нашої спільноти й розвивайтеся разом із нами.
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Сучасна Кар'єра та Бізнес. Всі права захищено.</p>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Бізнес послуги</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f6f9fc;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    header {
+      background-color: #026aa7;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    nav ul {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 15px;
+      margin-top: 15px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      padding: 8px 14px;
+      background-color: rgba(255, 255, 255, 0.2);
+      border-radius: 6px;
+      transition: background-color 0.3s;
+    }
+
+    nav a:hover {
+      background-color: rgba(255, 255, 255, 0.35);
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 25px;
+      max-width: 1200px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    .service-card {
+      background: white;
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+    }
+
+    .service-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .service-card h3 {
+      margin-top: 0;
+      color: #026aa7;
+    }
+
+    .price {
+      font-weight: bold;
+      font-size: 1.2em;
+      color: #2e7d32;
+      margin: 15px 0;
+    }
+
+    .add-to-cart {
+      width: 100%;
+      padding: 10px;
+      background-color: #026aa7;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .add-to-cart:hover {
+      background-color: #015a85;
+    }
+
+    #cart-panel {
+      position: fixed;
+      top: 0;
+      right: -400px;
+      width: 350px;
+      height: 100%;
+      background: white;
+      box-shadow: -3px 0 15px rgba(0,0,0,0.2);
+      transition: right 0.3s;
+      padding: 20px;
+      overflow-y: auto;
+      z-index: 1000;
+    }
+
+    #cart-panel.open {
+      right: 0;
+    }
+
+    #cart-items {
+      list-style: none;
+      padding: 0;
+    }
+
+    .cart-item {
+      display: flex;
+      justify-content: space-between;
+      padding: 10px 0;
+      border-bottom: 1px solid #eee;
+    }
+
+    .remove-item {
+      color: #d32f2f;
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+
+    #cart-total {
+      font-weight: bold;
+      font-size: 1.2em;
+      margin: 20px 0;
+      text-align: right;
+    }
+
+    #show-cart-btn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      padding: 12px 18px;
+      background: #026aa7;
+      color: white;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      z-index: 999;
+    }
+
+    #cart-count {
+      background: #ff5722;
+      border-radius: 50%;
+      width: 24px;
+      height: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8em;
+    }
+
+    footer {
+      text-align: center;
+      background-color: #026aa7;
+      color: white;
+      padding: 20px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Бізнес послуги</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Головна</a></li>
+        <li><a href="career.html">Кар'єра</a></li>
+        <li><a href="freelance.html">Фріланс</a></li>
+        <li><a href="crypto.html">Криптовалюта</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <div class="services-grid">
+      <div class="service-card">
+        <h3>Онлайн-магазин</h3>
+        <p>Повний цикл створення інтернет-магазину під ключ</p>
+        <div class="price">15 000 грн</div>
+        <button class="add-to-cart" data-id="1" data-name="Онлайн-магазин" data-price="15000">Замовити</button>
+      </div>
+
+      <div class="service-card">
+        <h3>Цифровий маркетинг</h3>
+        <p>Комплексний просуток вашого бізнесу в інтернеті</p>
+        <div class="price">8 000 грн</div>
+        <button class="add-to-cart" data-id="2" data-name="Цифровий маркетинг" data-price="8000">Замовити</button>
+      </div>
+
+      <div class="service-card">
+        <h3>Бізнес-консалтинг</h3>
+        <p>Розробка стратегії розвитку вашого бізнесу</p>
+        <div class="price">12 000 грн</div>
+        <button class="add-to-cart" data-id="3" data-name="Бізнес-консалтинг" data-price="12000">Замовити</button>
+      </div>
+
+      <div class="service-card">
+        <h3>Сайт під ключ</h3>
+        <p>Сучасний корпоративний сайт або лендінг</p>
+        <div class="price">10 000 грн</div>
+        <button class="add-to-cart" data-id="4" data-name="Сайт під ключ" data-price="10000">Замовити</button>
+      </div>
+
+      <div class="service-card">
+        <h3>Брендинг</h3>
+        <p>Розробка унікального стилю компанії</p>
+        <div class="price">7 500 грн</div>
+        <button class="add-to-cart" data-id="5" data-name="Брендинг" data-price="7500">Замовити</button>
+      </div>
+
+      <div class="service-card">
+        <h3>Бізнес-план</h3>
+        <p>Професійна розробка інвесторського бізнес-плану</p>
+        <div class="price">9 000 грн</div>
+        <button class="add-to-cart" data-id="6" data-name="Бізнес-план" data-price="9000">Замовити</button>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Бізнес послуги. Всі права захищено.</p>
+  </footer>
+
+  <button id="show-cart-btn">
+    Кошик
+    <span id="cart-count">0</span>
+  </button>
+
+  <div id="cart-panel">
+    <h2>Ваше замовлення</h2>
+    <ul id="cart-items"></ul>
+    <div id="cart-total">Всього: 0 грн</div>
+    <button id="checkout-btn" style="width: 100%; padding: 12px; background: #2e7d32; color: white; border: none; border-radius: 5px; cursor: pointer;">
+      Оформити замовлення
+    </button>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const cart = [];
+      const cartPanel = document.getElementById('cart-panel');
+      const showCartBtn = document.getElementById('show-cart-btn');
+      const cartItemsList = document.getElementById('cart-items');
+      const cartTotal = document.getElementById('cart-total');
+      const cartCount = document.getElementById('cart-count');
+      
+      // Додавання товару до кошика
+      document.querySelectorAll('.add-to-cart').forEach(button => {
+        button.addEventListener('click', function() {
+          const id = this.getAttribute('data-id');
+          const name = this.getAttribute('data-name');
+          const price = parseInt(this.getAttribute('data-price'));
+          
+          // Перевірка чи товар вже є в кошику
+          const existingItem = cart.find(item => item.id === id);
+          
+          if (existingItem) {
+            existingItem.quantity += 1;
+          } else {
+            cart.push({
+              id,
+              name,
+              price,
+              quantity: 1
+            });
+          }
+          
+          updateCart();
+          showCartPanel();
+          
+          // Анімація кнопки
+          this.textContent = 'Додано!';
+          setTimeout(() => {
+            this.textContent = 'Замовити';
+          }, 1000);
+        });
+      });
+      
+      // Показати/сховати кошик
+      showCartBtn.addEventListener('click', showCartPanel);
+      
+      function showCartPanel() {
+        cartPanel.classList.toggle('open');
+      }
+      
+      // Оновлення кошика
+      function updateCart() {
+        cartItemsList.innerHTML = '';
+        let total = 0;
+        let count = 0;
+        
+        cart.forEach(item => {
+          const itemTotal = item.price * item.quantity;
+          total += itemTotal;
+          count += item.quantity;
+          
+          const li = document.createElement('li');
+          li.className = 'cart-item';
+          li.innerHTML = `
+            <span>${item.name} (${item.quantity})</span>
+            <span>${itemTotal} грн</span>
+            <button class="remove-item" data-id="${item.id}">×</button>
+          `;
+          cartItemsList.appendChild(li);
+        });
+        
+        cartTotal.textContent = `Всього: ${total} грн`;
+        cartCount.textContent = count;
+        
+        // Додавання обробників подій для кнопок видалення
+        document.querySelectorAll('.remove-item').forEach(button => {
+          button.addEventListener('click', function() {
+            const id = this.getAttribute('data-id');
+            const index = cart.findIndex(item => item.id === id);
+            
+            if (index !== -1) {
+              if (cart[index].quantity > 1) {
+                cart[index].quantity -= 1;
+              } else {
+                cart.splice(index, 1);
+              }
+              updateCart();
+            }
+          });
+        });
+      }
+      
+      // Оформлення замовлення
+      document.getElementById('checkout-btn').addEventListener('click', function() {
+        if (cart.length === 0) {
+          alert('Кошик порожній!');
+          return;
+        }
+        
+        alert('Замовлення оформлено! Дякуємо за покупку.');
+        cart.length = 0;
+        updateCart();
+        cartPanel.classList.remove('open');
+      });
+    });
+  </script>
+</body>
+</html>

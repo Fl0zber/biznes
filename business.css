@@ -1,0 +1,144 @@
+/* Кнопки додавання до кошика *//* Основні налаштування */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f6f9fc;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Шапка */
+header {
+  background-color: #026aa7;
+  color: white;
+  padding: 20px 30px;
+  text-align: center;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 2em;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-top: 15px;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  padding: 8px 14px;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 6px;
+  transition: background-color 0.3s ease;
+}
+
+nav a:hover {
+  background-color: rgba(255, 255, 255, 0.35);
+}
+
+/* Основний контент */
+main {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+/* Стиль для секцій */
+section {
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 25px;
+  margin-bottom: 30px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.7);
+  position: relative;
+  overflow: hidden;
+  transition: background-color 0.3s ease;
+}
+
+/* Ефект вкладки */
+
+
+section:hover::after {
+  opacity: 1;
+}
+
+/* Підвал */
+footer {
+  text-align: center;
+  background-color: #026aa7;
+  color: white;
+  padding: 20px;
+  font-size: 0.9em;
+}
+
+/* Кошик */
+#cart-panel {
+  position: fixed;
+  top: 0;
+  right: -50%;
+  width: 50%;
+  height: 100%;
+  background: white;
+  box-shadow: -3px 0 15px rgba(0,0,0,0.2);
+  transition: right 0.3s ease;
+  padding: 20px;
+  overflow-y: auto;
+  z-index: 1001;
+}
+
+#cart-panel.open {
+  right: 0;
+}
+
+/* Стилі кнопок додавання */
+.add-to-cart {
+  margin-left: 15px;
+  padding: 6px 12px;
+  background-color: #026aa7;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.add-to-cart:hover {
+  background-color: #015a85;
+}
+
+/* Стилі кнопок в кошику */
+#cart-items button {
+  margin-left: 10px;
+  cursor: pointer;
+  border: none;
+  background: transparent;
+  color: #a00;
+  font-weight: bold;
+}
+
+/* Кнопка показати кошик */
+#show-cart-btn {
+  position: fixed; 
+  bottom: 20px; 
+  right: 20px; 
+  z-index: 1000; 
+  padding: 10px 15px; 
+  background:#026aa7; 
+  color: white; 
+  border:none; 
+  border-radius:5px; 
+  cursor:pointer;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+  transition: background-color 0.3s ease;
+}
+
+#show-cart-btn:hover {
+  background-color: #015a85;
+}

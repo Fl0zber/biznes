@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Кар'єра: Стань кращою версією себе</title>
+  <style>
+    :root {
+      --primary-color: #2c3e50;
+      --secondary-color: #3498db;
+      --accent-color: #e74c3c;
+      --light-color: #ecf0f1;
+      --dark-color: #2c3e50;
+    }
+    
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      background-color: #f6f9fc;
+      color: var(--dark-color);
+      line-height: 1.6;
+    }
+    
+    header {
+      background: linear-gradient(135deg, var(--primary-color), var(--dark-color));
+      color: white;
+      padding: 2rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    header::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('https://images.unsplash.com/photo-1521791136064-7986c2920216?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') center/cover;
+      opacity: 0.2;
+      z-index: 0;
+    }
+    
+    .header-content {
+      position: relative;
+      z-index: 1;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    header h1 {
+      margin: 0;
+      font-size: 2.5rem;
+      font-weight: 700;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    }
+    
+    nav ul {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin: 1.5rem 0 0;
+    }
+    
+    nav a {
+      color: white;
+      text-decoration: none;
+      padding: 0.6rem 1.2rem;
+      background-color: rgba(255,255,255,0.15);
+      border-radius: 2rem;
+      transition: all 0.3s ease;
+      font-weight: 500;
+    }
+    
+    nav a:hover {
+      background-color: rgba(255,255,255,0.3);
+      transform: translateY(-2px);
+    }
+    
+    main {
+      max-width: 1000px;
+      margin: 3rem auto;
+      padding: 0 1.5rem;
+    }
+    
+    .career-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin-bottom: 3rem;
+    }
+    
+    @media (max-width: 768px) {
+      .career-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    .card {
+      background-color: white;
+      border-radius: 12px;
+      padding: 2rem;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 32px rgba(0,0,0,0.12);
+    }
+    
+    .card h2 {
+      color: var(--primary-color);
+      margin-top: 0;
+      position: relative;
+      padding-bottom: 0.8rem;
+      font-size: 1.6rem;
+    }
+    
+    .card h2::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 60px;
+      height: 4px;
+      background-color: var(--secondary-color);
+      border-radius: 2px;
+    }
+    
+    .image-card {
+      min-height: 300px;
+      display: flex;
+      align-items: flex-end;
+      color: white;
+      position: relative;
+      isolation: isolate;
+    }
+    
+    .image-card::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+      z-index: -1;
+    }
+    
+    .image-card img {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -2;
+    }
+    
+    .image-card-content {
+      padding: 1.5rem;
+    }
+    
+    .step-list {
+      counter-reset: step-counter;
+      padding-left: 0;
+    }
+    
+    .step-list li {
+      counter-increment: step-counter;
+      list-style: none;
+      position: relative;
+      padding-left: 3.5rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    .step-list li::before {
+      content: counter(step-counter);
+      position: absolute;
+      left: 0;
+      top: 0;
+      background-color: var(--secondary-color);
+      color: white;
+      width: 2.5rem;
+      height: 2.5rem;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      font-size: 1.1rem;
+    }
+    
+    .tips-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+    
+    .tip-card {
+      background: white;
+      border-radius: 8px;
+      padding: 1.5rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      transition: all 0.3s ease;
+      border-left: 4px solid var(--accent-color);
+    }
+    
+    .tip-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    }
+    
+    .trends-section {
+      display: flex;
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+    
+    .trends-text {
+      flex: 1;
+    }
+    
+    .trends-image {
+      flex: 1;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+    }
+    
+    .trends-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    
+    @media (max-width: 768px) {
+      .trends-section {
+        flex-direction: column;
+      }
+    }
+    
+    footer {
+      text-align: center;
+      background-color: var(--dark-color);
+      color: white;
+      padding: 2rem;
+      margin-top: 4rem;
+    }
+    
+    .highlight {
+      background-color: rgba(52, 152, 219, 0.1);
+      padding: 0.2rem 0.4rem;
+      border-radius: 4px;
+      font-weight: 500;
+    }
+    
+    .accent {
+      color: var(--accent-color);
+      font-weight: 600;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-content">
+      <h1>Кар'єра: Стань кращою версією себе</h1>
+      <nav>
+        <ul>
+          <li><a href="index.html">Головна</a></li>
+          <li><a href="business.html">Бізнес</a></li>
+          <li><a href="freelance.html">Фріланс</a></li>
+          <li><a href="crypto.html">Криптовалюта</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="career-grid">
+      <div class="card">
+        <h2>Що таке кар'єра?</h2>
+        <p>
+          Кар'єра — це не лише посада чи місце роботи. Це тривалий шлях професійного зростання, самореалізації та досягнення цілей.
+        </p>
+        <p>
+          Успішна кар'єра починається з правильного вибору напрямку та постійного навчання. Вона включає як <span class="highlight">технічні навички</span>, так і <span class="highlight">розвиток особистості</span>.
+        </p>
+      </div>
+      
+      <div class="card image-card">
+        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Команда на робочій зустрічі">
+        <div class="image-card-content">
+          <h2>Сучасний ринок праці</h2>
+          <p>Гнучкість, адаптивність та постійне навчання — ключ до успіху</p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card">
+      <h2>Ключові етапи побудови кар'єри</h2>
+      <ul class="step-list">
+        <li><strong>Самопізнання:</strong> розуміння своїх сильних і слабких сторін, інтересів і цінностей</li>
+        <li><strong>Освіта:</strong> здобуття необхідних знань, сертифікатів і навичок</li>
+        <li><strong>Практика:</strong> досвід роботи, стажування, волонтерство або проєкти</li>
+        <li><strong>Нетворкінг:</strong> знайомства з фахівцями галузі, участь у подіях</li>
+        <li><strong>Розвиток:</strong> підвищення кваліфікації, освоєння нових інструментів</li>
+      </ul>
+    </div>
+    
+    <div class="card">
+      <h2>Корисні поради</h2>
+      <p>Успіх залежить не лише від таланту, а й від стратегії:</p>
+      
+      <div class="tips-grid">
+        <div class="tip-card">
+          <h3>Чіткі цілі</h3>
+          <p>Ставте досяжні цілі за принципом SMART</p>
+        </div>
+        <div class="tip-card">
+          <h3>Навички</h3>
+          <p>Постійно вдосконалюйте технічні й комунікативні навички</p>
+        </div>
+        <div class="tip-card">
+          <h3>Персональний бренд</h3>
+          <p>Робіть LinkedIn, резюме та портфоліо</p>
+        </div>
+        <div class="tip-card">
+          <h3>Гнучкість</h3>
+          <p>Не бійтеся змін — ринок праці швидко трансформується</p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card">
+      <h2>Тренди сучасної кар'єри</h2>
+      <div class="trends-section">
+        <div class="trends-text">
+          <p>
+            Сьогодні кар'єра стає більш <span class="accent">гнучкою</span>. Багато спеціалістів переходять до <span class="highlight">гібридних форматів роботи</span>, <span class="highlight">фрілансу</span> або створюють <span class="highlight">особисті бренди</span>.
+          </p>
+          <p>
+            Навички, як-от <span class="accent">критичне мислення</span>, <span class="accent">адаптивність</span> і <span class="accent">цифрова грамотність</span> — мають вирішальне значення.
+          </p>
+        </div>
+        <div class="trends-image">
+          <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Робота з ноутбуком в кав'ярні">
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Сучасна Кар'єра та Бізнес. Всі права захищено.</p>
+  </footer>
+</body>
+</html>
